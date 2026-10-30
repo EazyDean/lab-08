@@ -21,3 +21,37 @@ Open the `lab8` folder in Android Studio, or run from that folder:
 ```
 
 GitHub Actions runs the same build and unit tests on each push.
+
+## Lab Behavior
+
+- `restoreMana(amount)` adds mana and caps the result at 100.
+- `train()` spends 5 mana to increase spell power by 1 when at least 5 mana is
+  available. With less than 5 mana, both values remain unchanged.
+- `WizardTest` covers mana restoration below and above the cap, training with
+  exactly 5 mana, and refusing to train with 4 mana. The original spell tests
+  are preserved.
+
+## Test-driven Development
+
+The tests and empty method skeletons were committed and pushed before each
+implementation. Each red phase was verified locally and in GitHub Actions.
+
+| Phase | Result | GitHub Actions run |
+| --- | --- | --- |
+| Starter build | Passed | [Baseline](https://github.com/EazyDean/lab-08/actions/runs/41111099051) |
+| `restoreMana()` red phase | Failed: 2 restoration tests | [Failing restoration tests](https://github.com/EazyDean/lab-08/actions/runs/41111166916) |
+| `restoreMana()` green phase | Passed | [Restoration implementation](https://github.com/EazyDean/lab-08/actions/runs/41112074317) |
+| `train()` red phase | Failed: training with sufficient mana | [Training tests before implementation](https://github.com/EazyDean/lab-08/actions/runs/41112136256) |
+
+The final implementation's build status is available in
+[Android CI](https://github.com/EazyDean/lab-08/actions/workflows/ci.yml).
+
+## Verification
+
+- `./gradlew build --configuration-cache` passes locally.
+- All 7 unit tests pass, including the 6 tests in `WizardTest`.
+- Debug and release APKs build, and Android lint passes.
+
+## Submission
+
+Submit `https://github.com/EazyDean/lab-08` on Canvas.
