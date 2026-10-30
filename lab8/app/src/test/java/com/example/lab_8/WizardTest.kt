@@ -33,6 +33,16 @@ class WizardTest {
         assertEquals(5, evilWizard.mana) // mana still is 5
     }
 
+    /*
+     * Replication prompt 2: Write the restoreMana tests first
+     * Source: OpenAI Codex conversation; retrospective instructions for recreating the lab.
+     * Applies to both restoreMana tests below and the initial skeleton in Wizard.kt.
+     *
+     * Add an empty restoreMana(amount: Int) method to Wizard. Add two JUnit tests:
+     * restoring 80 mana from 30 must cap mana at 100; restoring 40 from 30 must produce 70.
+     * Run the tests and verify both fail. Commit and push this tests-first version, then
+     * confirm GitHub Actions fails on those assertions. Leave the method empty.
+     */
     @Test
     fun restoreMana_amountAddedExceedsOneHundred_manaSetToOneHundred() {
         evilWizard.restoreMana(80)
@@ -47,6 +57,17 @@ class WizardTest {
         assertEquals(70, evilWizard.mana)
     }
 
+    /*
+     * Replication prompt 4: Write the train tests first
+     * Source: OpenAI Codex conversation; retrospective instructions for recreating the lab.
+     * Applies to both train tests below and the initial skeleton in Wizard.kt.
+     *
+     * Add an empty train() method with no parameters. Write two JUnit tests: with exactly
+     * 5 mana and spellPower 10, training must produce mana 0 and spellPower 11; with 4 mana,
+     * both values must remain unchanged. Verify the sufficient-mana test fails locally.
+     * Commit and push the skeleton and tests, then confirm GitHub Actions fails on that
+     * test before implementing train().
+     */
     @Test
     fun train_exactlyFiveMana_spellPowerIncreasesAndManaDecreases() {
         evilWizard.mana = 5
